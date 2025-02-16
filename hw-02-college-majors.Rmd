@@ -141,7 +141,7 @@ college_recent_grads %>%
 
 ```{r}
 women %>%
-  select('major') 'top_n(3)'
+  select(major_type) 'top_n(3)'
 ```
 
 ## How do the distributions of median income compare across major categories?
@@ -281,11 +281,23 @@ college_recent_grads %>%
 
 8.  Which STEM majors have median salaries equal to or less than the median for all majors' median earnings? Your output should only show the major name and median, 25th percentile, and 75th percentile earning for that major as and should be sorted such that the major with the highest median earning is on top.
 
+
+```{r}
+college_recent_grads %>%
+  filter(stem_median <= median major_type == "stem",
+    median < 36000
+  )
+```
 🧶 ✅ ⬆️ Knit, *commit, and push your changes to GitHub with an appropriate commit message. Make sure to commit and push all changed files so that your Git pane is cleared up afterwards.*
 
 ## What types of majors do women tend to major in?
 
 9.  Create a scatterplot of median income vs. proportion of women in that major, coloured by whether the major is in a STEM field or not. Describe the association between these three variables.
+
+ ```{r fig,height=2}
+ggplot(data = college_recent_grads, women, mapping = aes(x = median_income, y= women)) +
+  scatterplot(binwidth = 1000)
+```
 
 ## Further exploration
 
